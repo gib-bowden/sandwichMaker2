@@ -47,4 +47,4 @@
         getSelectedVeggieCost
     };
 
-    module.export = Veggie; 
+    module.exports = Veggie; 

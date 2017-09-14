@@ -47,4 +47,4 @@
         getSelectedCondiCost
     };
 
-    module.export = Condi; 
+    module.exports = Condi; 

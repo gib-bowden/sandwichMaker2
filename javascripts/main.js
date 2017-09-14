@@ -18,8 +18,8 @@ const populateBreads = () => {
 };
 
 const populateMeats = () => {
-    const meatNames = Sandwich.Meat.getMeatNames(); 
 	const meatContainer = document.getElementById("meat-container");
+	const meatNames = Sandwich.Meat.getMeatNames();
 	for (let name of meatNames.sort()) {
 		meatContainer.innerHTML += `<option data-subtext="$${Sandwich.Meat.getMeatPrice(name).toFixed(2)}" value="${name}">${name}</option>`;
 	}
@@ -95,5 +95,5 @@ const loadPage = () => {
 window.addEventListener("load", loadPage);
 document.getElementById("order-container").addEventListener("change", calculateTotalCost);
 
-
+console.log(module);
 
