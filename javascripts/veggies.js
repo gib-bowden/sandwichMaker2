@@ -1,47 +1,50 @@
-// "use strict";
+"use strict";
 
-// var Sandwich = (function (oldSandwich){
-// 	const veggies = {"lettuce": 0.50, "tomato": 0.75};
-// 	let selectedVeggies = []; 
+	const veggies = {"lettuce": 0.50, "tomato": 0.75};
+	let selectedVeggies = []; 
 
-// 	oldSandwich.getVeggieNames = function() {
-// 		return Object.keys(veggies);
-// 	};
+	const getVeggieNames = function() {
+		return Object.keys(veggies);
+	};
 
-// 	oldSandwich.getVeggiePrice = function(name) {
-// 		return veggies[name];
-// 	};
+	const getVeggiePrice = function(name) {
+		return veggies[name];
+	};
 
-// 	oldSandwich.getSelectedVeggies = function() {
-// 		return selectedVeggies;
-// 	};
+	const getSelectedVeggies = function() {
+		return selectedVeggies;
+	};
 
-// 	oldSandwich.addVeggie = function(name){
-// 		selectedVeggies.push(name);
-// 	};
+	const addVeggie = function(name){
+		selectedVeggies.push(name);
+	};
 
-// 	oldSandwich.clearSelectedVeggies = function() {
-// 		selectedVeggies = []; 
-// 	};
+	const clearSelectedVeggies = function() {
+		selectedVeggies = []; 
+	};
 
-// 	oldSandwich.getSelectedVeggieCost = function() {
-// 		let cost; 
-// 		if (selectedVeggies.length !== 0) {
-// 			const prices = selectedVeggies.map((name) => {
-// 				return veggies[name];
-// 			});
-// 			cost = prices.reduce((sum, price) => {
-// 				return sum + price;
-// 			});
-// 		} else {
-// 			cost = 0; 
-// 		}
-// 		return cost; 
-//     };
+	const getSelectedVeggieCost = function() {
+		let cost; 
+		if (selectedVeggies.length !== 0) {
+			const prices = selectedVeggies.map((name) => {
+				return veggies[name];
+			});
+			cost = prices.reduce((sum, price) => {
+				return sum + price;
+			});
+		} else {
+			cost = 0; 
+		}
+		return cost; 
+    };
     
-// 	return oldSandwich;
+    const Veggie = {
+        getVeggieNames, 
+        getVeggiePrice, 
+        getSelectedVeggies, 
+        addVeggie, 
+        clearSelectedVeggies, 
+        getSelectedVeggieCost
+    };
 
-// })(Sandwich || {});
-
-// let veggieNames = Sandwich.getVeggieNames(); 
-// let selectedVeggies = Sandwich.getSelectedVeggies();
+    module.export = Veggie; 
