@@ -1,3 +1,59 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+"use strict";
+
+	const breads = {"Brioche": 0.50, "Baguette": 0.50, "Sourdough": 0.50, "Wrap": 0.50, "Naked": 1.00};
+	let selectedBreads = []; 
+
+	const getBreadNames = () => {
+		return Object.keys(breads);
+	};
+
+	const getBreadPrice = (name) => {
+		return breads[name];
+	};
+
+	const getSelectedBreads = function() {
+		return selectedBreads;
+	};
+
+	const addBread = (name) => {
+		selectedBreads.push(name);
+	};
+
+	const clearSelectedBreads = () => {
+		selectedBreads = []; 
+	};
+
+	const getSelectedBreadCost = () => {
+		let cost; 
+		if (selectedBreads.length !== 0) {
+			const prices = selectedBreads.map((name) => {
+				return breads[name];
+			});
+			cost = prices.reduce((sum, price) => {
+				return sum + price;
+			});
+		} else {
+			cost = 0; 
+		}
+		return cost; 
+	};
+
+
+
+
+const Bread = {
+	getBreadNames, 
+	getBreadPrice, 
+	getSelectedBreads, 
+	addBread, 
+	clearSelectedBreads, 
+	getSelectedBreadCost
+};
+
+module.exports = Bread; 
+
+},{}],2:[function(require,module,exports){
 "use strict";
 
 // const populateBreads = () => {
@@ -93,3 +149,5 @@ const bread = require("./bread.js");
 console.log(bread.getBreadNames());
 console.log(bread.getBreadPrice("Brioche")); 
 
+
+},{"./bread.js":1}]},{},[2]);
