@@ -1,30 +1,29 @@
 "use strict";
 
-var Sandwich = (function (oldSandwich){
 	const veggies = {"lettuce": 0.50, "tomato": 0.75};
 	let selectedVeggies = []; 
 
-	oldSandwich.getVeggieNames = function() {
+	const getVeggieNames = function() {
 		return Object.keys(veggies);
 	};
 
-	oldSandwich.getVeggiePrice = function(name) {
+	const getVeggiePrice = function(name) {
 		return veggies[name];
 	};
 
-	oldSandwich.getSelectedVeggies = function() {
+	const getSelectedVeggies = function() {
 		return selectedVeggies;
 	};
 
-	oldSandwich.addVeggie = function(name){
+	const addVeggie = function(name){
 		selectedVeggies.push(name);
 	};
 
-	oldSandwich.clearSelectedVeggies = function() {
+	const clearSelectedVeggies = function() {
 		selectedVeggies = []; 
 	};
 
-	oldSandwich.getSelectedVeggieCost = function() {
+	const getSelectedVeggieCost = function() {
 		let cost; 
 		if (selectedVeggies.length !== 0) {
 			const prices = selectedVeggies.map((name) => {
@@ -39,9 +38,13 @@ var Sandwich = (function (oldSandwich){
 		return cost; 
     };
     
-	return oldSandwich;
+    const Veggie = {
+        getVeggieNames, 
+        getVeggiePrice, 
+        getSelectedVeggies, 
+        addVeggie, 
+        clearSelectedVeggies, 
+        getSelectedVeggieCost
+    };
 
-})(Sandwich || {});
-
-let veggieNames = Sandwich.getVeggieNames(); 
-let selectedVeggies = Sandwich.getSelectedVeggies();
+    module.exports = Veggie; 

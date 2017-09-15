@@ -1,30 +1,29 @@
 "use strict";
 
-var Sandwich = (function (oldSandwich){
 	const condis = {"ketchup": 0.50, "mayo": 0.75};
 	let selectedCondis = []; 
 
-	oldSandwich.getCondiNames = function() {
+	const getCondiNames = function() {
 		return Object.keys(condis);
 	};
 
-	oldSandwich.getCondiPrice = function(name) {
+	const getCondiPrice = function(name) {
 		return condis[name];
 	};
 
-	oldSandwich.getSelectedCondis = function() {
+	const getSelectedCondis = function() {
 		return selectedCondis;
 	};
 
-	oldSandwich.addCondi = function(name){
+	const addCondi = function(name){
 		selectedCondis.push(name);
 	};
 
-	oldSandwich.clearSelectedCondis = function() {
+	const clearSelectedCondis = function() {
 		selectedCondis = []; 
 	};
 
-	oldSandwich.getSelectedCondiCost = function() {
+	const getSelectedCondiCost = function() {
 		let cost; 
 		if (selectedCondis.length !== 0) {
 			const prices = selectedCondis.map((name) => {
@@ -37,10 +36,15 @@ var Sandwich = (function (oldSandwich){
 			cost = 0; 
 		}
 		return cost;
-	};
+    };
+    
+    const Condi = {
+        getCondiNames,
+        getCondiPrice,
+        getSelectedCondis,
+        addCondi, 
+        clearSelectedCondis, 
+        getSelectedCondiCost
+    };
 
-	return oldSandwich;
-
-})(Sandwich || {});
-
-const condiNames = Sandwich.getCondiNames(); 
+    module.exports = Condi; 

@@ -1,76 +1,84 @@
 "use strict";
 
+const Sandwich = require("./sandwich.js");
+
+
 const populateBreads = () => {
-	const breadContainer = document.getElementById("bread-container");
+    const breadContainer = document.getElementById("bread-container");
+    const breadNames = Sandwich.Bread.getBreadNames(); 
 	for (let name of breadNames.sort()) {
-		breadContainer.innerHTML += `<option data-subtext="$${Sandwich.getBreadPrice(name).toFixed(2)}" value="${name}">${name}</option>`; 
+		breadContainer.innerHTML += `<option data-subtext="$${Sandwich.Bread.getBreadPrice(name).toFixed(2)}" value="${name}">${name}</option>`; 
 	}
 	$("#bread-container").on('changed.bs.select', (e) => {
-		Sandwich.clearSelectedBreads();
+		Sandwich.Bread.clearSelectedBreads();
 		for (let option of e.target.selectedOptions) {
-			Sandwich.addBread(option.value);
+			Sandwich.Bread.addBread(option.value);
 		}
 	});
 };
 
 const populateMeats = () => {
 	const meatContainer = document.getElementById("meat-container");
+	const meatNames = Sandwich.Meat.getMeatNames();
 	for (let name of meatNames.sort()) {
-		meatContainer.innerHTML += `<option data-subtext="$${Sandwich.getMeatPrice(name).toFixed(2)}" value="${name}">${name}</option>`;
+		meatContainer.innerHTML += `<option data-subtext="$${Sandwich.Meat.getMeatPrice(name).toFixed(2)}" value="${name}">${name}</option>`;
 	}
 	$("#meat-container").on('changed.bs.select', (e) => {
-		Sandwich.clearSelectedMeats();
+		Sandwich.Meat.clearSelectedMeats();
 		for (let option of e.target.selectedOptions) {
-			Sandwich.addMeat(option.value);
+			Sandwich.Meat.addMeat(option.value);
 		}
 	});
 };
 
 const populateCondis = () => {
+    const condiNames = Sandwich.Condi.getCondiNames(); 
 	const condiContainer = document.getElementById("condiment-container");
 	for (let name of condiNames.sort()) {
-		condiContainer.innerHTML += `<option data-subtext="$${Sandwich.getCondiPrice(name).toFixed(2)}" value="${name}">${name}</option>`;
+		condiContainer.innerHTML += `<option data-subtext="$${Sandwich.Condi.getCondiPrice(name).toFixed(2)}" value="${name}">${name}</option>`;
 	}
 	$("#condiment-container").on('changed.bs.select', (e) => {
-		Sandwich.clearSelectedCondis();
+		Sandwich.Condi.clearSelectedCondis();
 		for (let option of e.target.selectedOptions) {
-			Sandwich.addCondi(option.value);
+			Sandwich.Condi.addCondi(option.value);
 		}
 	});
 };
 
 const populateCheeses = () => {
+    const cheeseNames = Sandwich.Cheese.getCheeseNames(); 
 	const cheeseContainer = document.getElementById("cheese-container");
 	for (let name of cheeseNames.sort()) {
-		cheeseContainer.innerHTML += `<option data-subtext="$${Sandwich.getCheesePrice(name).toFixed(2)}" value="${name}">${name}</option>`;
+		cheeseContainer.innerHTML += `<option data-subtext="$${Sandwich.Cheese.getCheesePrice(name).toFixed(2)}" value="${name}">${name}</option>`;
 	}
 	$("#cheese-container").on('changed.bs.select', (e) => {
-		Sandwich.clearSelectedCheeses();
+		Sandwich.Cheese.clearSelectedCheeses();
 		for (let option of e.target.selectedOptions) {
-			Sandwich.addCheese(option.value);
+			Sandwich.Cheese.addCheese(option.value);
 		}
 	});
 };
 
 const populateVeggies = () => {
+    const veggieNames = Sandwich.Veggie.getVeggieNames(); 
 	const veggieContainer = document.getElementById("veggie-container");
 	for (let name of veggieNames.sort()) {
-		veggieContainer.innerHTML += `<option data-subtext="$${Sandwich.getVeggiePrice(name).toFixed(2)}" value="${name}">${name}</option>`;
+		veggieContainer.innerHTML += `<option data-subtext="$${Sandwich.Veggie.getVeggiePrice(name).toFixed(2)}" value="${name}">${name}</option>`;
 	}
 	$("#veggie-container").on('changed.bs.select', (e) => {
-		Sandwich.clearSelectedVeggies();
+		Sandwich.Veggie.clearSelectedVeggies();
 		for (let option of e.target.selectedOptions) {
-			Sandwich.addVeggie(option.value);
+			Sandwich.Veggie.addVeggie(option.value);
 		}
 	});
 };
 
 const calculateTotalCost = () => {	
-	let breadCost = Sandwich.getSelectedBreadCost();
-	let cheeseCost = Sandwich.getSelectedCheeseCost();
-	let condiCost = Sandwich.getSelectedCondiCost();
-	let meatCost = Sandwich.getSelectedMeatCost();
-	let veggieCost = Sandwich.getSelectedVeggieCost();
+	let breadCost = Sandwich.Bread.getSelectedBreadCost();
+	let cheeseCost = Sandwich.Cheese.getSelectedCheeseCost();
+	let condiCost = Sandwich.Condi.getSelectedCondiCost();
+	let meatCost = Sandwich.Meat.getSelectedMeatCost();
+	let veggieCost = Sandwich.Veggie.getSelectedVeggieCost();
 	let totalCost = (breadCost + cheeseCost + condiCost + meatCost + veggieCost);
 	document.getElementById("total-cost").innerHTML = `Sandwich Price: $${totalCost.toFixed(2)}`; 
 	return totalCost;
@@ -86,3 +94,6 @@ const loadPage = () => {
 
 window.addEventListener("load", loadPage);
 document.getElementById("order-container").addEventListener("change", calculateTotalCost);
+
+console.log(module);
+

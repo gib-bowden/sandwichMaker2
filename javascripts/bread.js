@@ -1,46 +1,55 @@
 "use strict";
 
-var Sandwich = (function (oldSandwich){
-	const bread = {"Brioche": 0.50, "Baguette": 0.50, "Sourdough": 0.50, "Wrap": 0.50, "Naked": 1.00};
-	let selectedBreads = []; 
+const breads = {"Brioche": 0.50, "Baguette": 0.50, "Sourdough": 0.50, "Wrap": 0.50, "Naked": 1.00};
+let selectedBreads = []; 
 
-	oldSandwich.getBreadNames = function() {
-		return Object.keys(bread);
-	};
+const getBreadNames = () => {
+	return Object.keys(breads);
+};
 
-	oldSandwich.getBreadPrice = function(name) {
-		return bread[name];
-	};
+const getBreadPrice = (name) => {
+	return breads[name];
+};
 
-	oldSandwich.getSelectedBreads = function() {
-		return selectedBreads;
-	};
+const getSelectedBreads = () => {
+	return selectedBreads;
+};
 
-	oldSandwich.addBread = function(name){
-		selectedBreads.push(name);
-	};
+const addBread = (name) => {
+	selectedBreads.push(name);
+};
 
-	oldSandwich.clearSelectedBreads = function() {
-		selectedBreads = []; 
-	};
+const clearSelectedBreads = () => {
+	selectedBreads = []; 
+};
 
-	oldSandwich.getSelectedBreadCost = function() {
-		let cost; 
-		if (selectedBreads.length !== 0) {
-			const prices = selectedBreads.map((name) => {
-				return bread[name];
-			});
-			cost = prices.reduce((sum, price) => {
-				return sum + price;
-			});
-		} else {
-			cost = 0; 
-		}
-		return cost; 
-	};
+const getSelectedBreadCost = () => {
+	let cost; 
+	if (selectedBreads.length !== 0) {
+		const prices = selectedBreads.map((name) => {
+			return breads[name];
+		});
+		cost = prices.reduce((sum, price) => {
+			return sum + price;
+		});
+	} else {
+		cost = 0; 
+	}
+	return cost; 
+};
 
-	return oldSandwich;
 
-})(Sandwich || {});
 
-const breadNames = Sandwich.getBreadNames();
+
+const breadObject = {
+	getBreadNames, 
+	getBreadPrice, 
+	getSelectedBreads, 
+	addBread, 
+	clearSelectedBreads, 
+	getSelectedBreadCost
+};
+
+module.exports = breadObject; 
+
+console.log(breadObject);
