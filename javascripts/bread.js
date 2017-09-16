@@ -13,11 +13,9 @@ let selectedIngredients = [];
 
 const breadExport = {
 	name: "bread",
+	selectType: "single",
 	objectList, 
 	selectedIngredients
 };
 
-module.exports = breadExport; 
-
-
-console.log(breadExport); 
+module.exports = breadExport;

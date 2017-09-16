@@ -8,6 +8,8 @@ const objectList = {
 let selectedIngredients = []; 
 
 const cheeseExport = {
+	name: "cheese",
+	selectType: "multi",
 	objectList, 
 	selectedIngredients
 };

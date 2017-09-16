@@ -48,13 +48,13 @@ const getSelectedIngredientCost = (ingredientType) => {
 };
 
 const Sandwich = {
-    ingredientTypes: {
+    ingredientTypes: [
         bread,
         meat,
         cheese,
         condi,
         veggie
-    },
+    ],
     getIngredientTypeName,
     getIngredientNames,
     getIngredientPrice,

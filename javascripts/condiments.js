@@ -8,6 +8,8 @@ const objectList = {
 let selectedIngredients = []; 
 
 const condiExport = {
+	name: "condiment",
+	selectType: "multi",
 	objectList, 
 	selectedIngredients
 };
