@@ -1,50 +1,17 @@
 "use strict";
 
-	const condis = {"ketchup": 0.50, "mayo": 0.75};
-	let selectedCondis = []; 
+const objectList = {
+	"ketchup": 0.50,
+	"mayo": 0.75
+};
 
-	const getCondiNames = function() {
-		return Object.keys(condis);
-	};
+let selectedIngredients = []; 
 
-	const getCondiPrice = function(name) {
-		return condis[name];
-	};
+const condiExport = {
+	name: "condiment",
+	selectType: "multi",
+	objectList, 
+	selectedIngredients
+};
 
-	const getSelectedCondis = function() {
-		return selectedCondis;
-	};
-
-	const addCondi = function(name){
-		selectedCondis.push(name);
-	};
-
-	const clearSelectedCondis = function() {
-		selectedCondis = []; 
-	};
-
-	const getSelectedCondiCost = function() {
-		let cost; 
-		if (selectedCondis.length !== 0) {
-			const prices = selectedCondis.map((name) => {
-				return condis[name];
-			});
-			cost = prices.reduce((sum, price) => {
-				return sum + price;
-			});
-		} else {
-			cost = 0; 
-		}
-		return cost;
-    };
-    
-    const Condi = {
-        getCondiNames,
-        getCondiPrice,
-        getSelectedCondis,
-        addCondi, 
-        clearSelectedCondis, 
-        getSelectedCondiCost
-    };
-
-    module.exports = Condi; 
+module.exports = condiExport; 

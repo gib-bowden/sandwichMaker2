@@ -1,50 +1,17 @@
 "use strict";
 
-	const cheeses = {"american": 0.10, "swiss": 0.15};
-	let selectedCheeses = []; 
+const objectList = {
+	"american": 0.10, 
+	"swiss": 0.15
+};
 
-	const getCheeseNames = function() {
-		return Object.keys(cheeses);
-	};
+let selectedIngredients = []; 
 
-	const getCheesePrice = function(name) {
-		return cheeses[name];
-	};
-
-	const getSelectedCheeses = function() {
-		return selectedCheeses;
-	};
-
-	const addCheese = function(name){
-		selectedCheeses.push(name);
-	};
-
-	const clearSelectedCheeses = function() {
-		selectedCheeses = []; 
-	};
-
-	const getSelectedCheeseCost = function() {
-		let cost; 
-		if (selectedCheeses.length !== 0) {
-			const prices = selectedCheeses.map((name) => {
-				return cheeses[name];
-			});
-			cost = prices.reduce((sum, price) => {
-				return sum + price;
-			});
-		} else {
-			cost = 0; 
-		}
-		return cost; 
-	};
-
-    const Cheese = {
-        getCheeseNames, 
-        getCheesePrice, 
-        getSelectedCheeses, 
-        addCheese, 
-        clearSelectedCheeses, 
-        getSelectedCheeseCost
-    };
+const cheeseExport = {
+	name: "cheese",
+	selectType: "multi",
+	objectList, 
+	selectedIngredients
+};
     
-    module.exports = Cheese; 
+module.exports = cheeseExport; 
