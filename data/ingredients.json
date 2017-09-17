@@ -1,0 +1,139 @@
+{
+	"ingredients": [{
+			"categoryId": 1,
+			"name": "Brioche",
+			"price": 0.50
+		},
+		{
+			"categoryId": 1,
+			"name": "Baguette",
+			"price": 0.50
+		},
+		{
+			"categoryId": 1,
+			"name": "Sourdough",
+			"price": 0.50
+		},
+		{
+			"categoryId": 1,
+			"name": "Wrap",
+			"price": 0.50
+		},
+		{
+			"categoryId": 1,
+			"name": "Naked",
+			"price": 1.00
+		},
+		{
+			"categoryId": 2,
+			"name": "American",
+			"price": 0.10
+		},
+		{
+			"categoryId": 2,
+			"name": "Swiss",
+			"price": 0.10
+		},
+		{
+			"categoryId": 2,
+			"name": "Pepperjack",
+			"price": 0.10
+		},
+		{
+			"categoryId": 2,
+			"name": "Provolone",
+			"price": 0.10
+		},
+		{
+			"categoryId": 2,
+			"name": "Mozzarella",
+			"price": 0.10
+		},
+		{
+			"categoryId": 3,
+			"name": "Mayo",
+			"price": 0.05
+		},
+		{
+			"categoryId": 3,
+			"name": "Mustard",
+			"price": 0.05
+		},
+		{
+			"categoryId": 3,
+			"name": "Relish",
+			"price": 0.10
+		},
+		{
+			"categoryId": 3,
+			"name": "Guacamole",
+			"price": 1.00
+		},
+		{
+			"categoryId": 3,
+			"name": "Pesto",
+			"price": 0.50
+		},
+		{
+			"categoryId": 4,
+			"name": "Turkey",
+			"price": 1.00
+		},
+		{
+			"categoryId": 4,
+			"name": "Ham",
+			"price": 1.00
+		},
+		{
+			"categoryId": 4,
+			"name": "Roast Beef",
+			"price": 1.50
+		},
+		{
+			"categoryId": 4,
+			"name": "Prosciutto",
+			"price": 0.50
+		},
+		{
+			"categoryId": 4,
+			"name": "Pastrami",
+			"price": 0.50
+		},
+		{
+			"categoryId": 4,
+			"name": "Salami",
+			"price": 0.50
+		},
+		{
+			"categoryId": 4,
+			"name": "Chicken",
+			"price": 0.75
+		},
+		{
+			"categoryId": 5,
+			"name": "Lettuce",
+			"price": 0.10
+		},
+		{
+			"categoryId": 5,
+			"name": "Spicy Peppers",
+			"price": 0.10
+		},
+		{
+			"categoryId": 5,
+			"name": "Mild Peppers",
+			"price": 0.10
+		},
+		{
+			"categoryId": 5,
+			"name": "Pickles",
+			"price": 0.10
+		},
+		{
+			"categoryId": 5,
+			"name": "Spinach",
+			"price": 0.10
+		}
+
+	]
+}

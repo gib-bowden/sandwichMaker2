@@ -1,0 +1,30 @@
+{
+	"categories": [
+		{
+			"id": 1,
+			"name": "Bread",
+			"isMultiSelect": false 
+		},
+		{
+			"id": 2,
+			"name": "Cheese",
+			"isMultiSelect": true 
+		},
+		{
+			"id": 3,
+			"name": "Condiment",
+			"isMultiSelect": true 
+		},
+		{
+			"id": 4,
+			"name": "Meat",
+			"isMultiSelect": true 
+        },
+        {
+			"id": 5,
+			"name": "Veggie",
+			"isMultiSelect": true 
+        }
+
+	]
+}
