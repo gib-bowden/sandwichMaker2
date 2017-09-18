@@ -1,8 +1,6 @@
 "use strict";
 
-
 const data = require("./data.js");
-
 
 let selectedIngredients = []; 
 let ingredientsArr = []; 
@@ -62,6 +60,5 @@ const Sandwich = {
 	listUniqueCategorySelections,
 	ingredientsArr
 };
-
 
 module.exports = Sandwich; 
