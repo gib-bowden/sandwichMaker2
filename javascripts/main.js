@@ -1,6 +1,9 @@
-// "use strict";
+"use strict";
 
-// const Sandwich = require("./sandwich.js");
+const data = require("./data.js");
+
+data.initializer(); 
+
 
 // const populateIngredients = (ingredientType) => {
 // 	const div = createIngredientDiv(ingredientType);

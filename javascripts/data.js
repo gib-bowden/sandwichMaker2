@@ -1,13 +1,21 @@
 "use strict";
+
 const buildDom = require("./dom");
 const loadIngredients = require("./ingredients");
 const loadCategories = require("./categories");
+const Sandwich = require("./sandwich");
 
 let ingredientArr = [];
 
 const errorFunction = () => {
     console.log("You broke me");
 };
+
+// let setCombinedArr = (arr) => {
+//   arr.forEach((item) => {
+//     combinedArr.push(item); 
+//   });
+// }; 
 
 const whenIngredientsLoad = function () {
     ingredientArr = JSON.parse(this.responseText).ingredients;
@@ -29,22 +37,18 @@ const combineArrays = (categoryArr) => {
     });
   });
 
-  console.log("ingredients", ingredientArr);
+  console.log("ingredients from combine array", ingredientArr);
+  //combinedArr = ingredientArr; //why doesn't this update the outside variable????!!!!!!!
+  Sandwich.setIngredients(ingredientArr);
   buildDom(ingredientArr, categoryArr);
 };
 
-//set up "initializer" -load gifs
+///console.log("why isnt this working?", combinedArr); //why doesn't this work??! 
+
 const initializer = () => {
   loadIngredients(whenIngredientsLoad, errorFunction);
 };
 
-const getIngredients = () => {
-  return ingredientArr;
-};
-
 module.exports = {
     initializer, 
-    getIngredients
 };
-
-initializer(); 
