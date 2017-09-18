@@ -4,65 +4,64 @@
 const data = require("./data.js");
 
 
-data.initializer(); 
+let selectedIngredients = []; 
+let ingredientsArr = []; 
+
+const setIngredients = (arr) => {
+ ingredientsArr = arr;
+ console.log("ingreidents from set ingredients function", ingredientsArr);
+};
+
+const getSelectedIngredients = () => {
+	return selectedIngredients;
+};
+
+const addIngredient = (selectedIngredient) => {
+	ingredientsArr.forEach((ingredient) => {
+		if (selectedIngredient === ingredient.name) {
+			selectedIngredients.push(ingredient); 
+		}
+	});
+};
+
+const removeIngredient = (selectedIngredient) => {
+	selectedIngredients.forEach((ingredient, index) => {
+		if (selectedIngredient === ingredient.name) {
+			selectedIngredients.splice(index, 1);
+			removeIngredient(selectedIngredient);
+		}
+	});
+};
+
+const getSandwichPrice = () => {
+	let cost; 
+	if (selectedIngredients.length !== 0) {
+		const prices = selectedIngredients.map((ingredient) => {
+			return ingredient.price;
+		});
+		cost = prices.reduce((sum, price) => {
+			return sum + price;
+		});
+	} else {
+		cost = 0; 
+	}
+	return cost.toFixed(2); 
+};
+
+const listUniqueCategorySelections = () => {
+	var selectedCategories = selectedIngredients.map((item) => {return item.categoryName;});
+	return selectedCategories.filter((item, index, arr) => {return arr.indexOf(item) === index;});
+};
+
+const Sandwich = {
+	getSelectedIngredients,
+	addIngredient,
+	removeIngredient,
+	getSandwichPrice, 
+	setIngredients,
+	listUniqueCategorySelections,
+	ingredientsArr
+};
 
 
-// const getIngredientTypeName = (ingredientType) => {
-// 	return ingredientType.name;
-// };
-
-// const getIngredientNames = (ingredientType) => {
-// 	return Object.keys(ingredientType.objectList);
-// };
-
-// const getIngredientPrice = (ingredientType, name) => {
-// 	return ingredientType.objectList[name];
-// };
-
-// const getSelectedIngredients = (ingredientType) => {
-// 	return ingredientType.selectedIngredients;
-// };
-
-// const addIngredient = (ingredientType, name) => {
-// 	ingredientType.selectedIngredients.push(name);
-// };
-
-// const clearSelectedIngredients = (ingredientType) => {
-// 	ingredientType.selectedIngredients = []; 
-// };
-
-// const getSelectedIngredientCost = (ingredientType) => {
-// 	let cost; 
-// 	if (ingredientType.selectedIngredients.length !== 0) {
-// 		const prices = ingredientType.selectedIngredients.map((name) => {
-// 			return getIngredientPrice(ingredientType, name);
-// 		});
-// 		cost = prices.reduce((sum, price) => {
-// 			return sum + price;
-// 		});
-// 	} else {
-// 		cost = 0; 
-// 	}
-// 	return cost; 
-// };
-
-// const Sandwich = {
-//     ingredientTypes: [
-//         bread,
-//         meat,
-//         cheese,
-//         condi,
-//         veggie
-//     ],
-//     getIngredientTypeName,
-//     getIngredientNames,
-//     getIngredientPrice,
-//     getSelectedIngredients,
-//     addIngredient,
-//     clearSelectedIngredients,
-//     getSelectedIngredientCost
-// };
-
-
-
-// module.exports = Sandwich; 
+module.exports = Sandwich; 
