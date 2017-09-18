@@ -95,7 +95,6 @@ const addSelectionsToCategories = ()  => {
 };
 
 const clearSiblingRadios = (selectedOption) => {
-    console.log(selectedOption);
     let sameNamedOptions = document.getElementsByName(selectedOption.name); 
     sameNamedOptions.forEach((option) => {
         if (option.checked === false) {
